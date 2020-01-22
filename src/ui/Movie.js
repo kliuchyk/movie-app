@@ -1,30 +1,40 @@
 import React from 'react';
 import { Card, Icon, Avatar } from 'antd';
 
-const { Meta } = Card;
-
-export default function Movie() {
+export default function Movie({
+  id,
+  title,
+  overview,
+  posterPath,
+  backdropPath
+}) {
   return (
     <Card
-      style={{ width: 300 }}
+      style={{ width: 400, margin: 20 }}
       cover={
         <img
           alt="example"
-          src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+          src={`https://image.tmdb.org/t/p/w500${posterPath}`}
         />
       }
       actions={[
-        <Icon type="setting" key="setting" />,
-        <Icon type="edit" key="edit" />,
-        <Icon type="ellipsis" key="ellipsis" />
+        <Icon type="star" key="star" />,
+
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href={`https://www.themoviedb.org/movie/${id}`}
+        >
+          <Icon type="link" key="link" />
+        </a>
       ]}
     >
-      <Meta
+      <Card.Meta
         avatar={
-          <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+          <Avatar src={`https://image.tmdb.org/t/p/w500${backdropPath}`} />
         }
-        title="Card title"
-        description="This is the description"
+        title={title}
+        description={overview}
       />
     </Card>
   );

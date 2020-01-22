@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
-import { MovieContext } from './providers/MovieProvider';
+import React from 'react';
 import MoviesProvider from './providers/MovieProvider';
 import MovieList from './containers/MovieList';
 
 function App() {
   return (
     <MoviesProvider>
-      <MovieList />
+      <div className="content">
+        <MovieList />
+      </div>
     </MoviesProvider>
   );
 }
