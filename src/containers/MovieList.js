@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { MovieContext } from '../providers/MovieProvider';
 import { FavoritesContext } from '../providers/FavoritesProvider';
 import Movie from '../ui/Movie';
+import Spin from '../ui/Spin';
 
 export default function MovieList() {
   const { movies, isLoading } = useContext(MovieContext);
@@ -9,7 +10,7 @@ export default function MovieList() {
     FavoritesContext
   );
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spin />;
 
   return movies.map(({ id, title, overview, poster_path, backdrop_path }) => {
     const isFavorite = favorites.has(id);
