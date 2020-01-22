@@ -21,3 +21,7 @@ code {
   align-items: baseline;
   justify-content: center;
 }
+
+.page-header {
+  border: 1px solid rgb(235, 237, 240);
+}
