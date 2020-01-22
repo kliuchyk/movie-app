@@ -6,7 +6,9 @@ export default function Movie({
   title,
   overview,
   posterPath,
-  backdropPath
+  backdropPath,
+  isFavorite,
+  handleFavoriteIconClick
 }) {
   return (
     <Card
@@ -18,7 +20,12 @@ export default function Movie({
         />
       }
       actions={[
-        <Icon type="star" key="star" />,
+        <Icon
+          type="star"
+          key="star"
+          theme={isFavorite ? 'filled' : 'outlined'}
+          onClick={() => handleFavoriteIconClick(id)}
+        />,
 
         <a
           rel="noopener noreferrer"
